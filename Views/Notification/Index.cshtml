@@ -1,0 +1,38 @@
+@model List<Notification>
+
+@{
+    ViewData["Title"] = "Мои уведомления";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info mt-3">
+            <i class="bi bi-info-circle"></i> У вас нет уведомлений
+        </div>
+    }
+    else
+    {
+        <div class="list-group mt-3">
+            @foreach (var notification in Model)
+            {
+                <div class="list-group-item @(notification.IsRead ? "" : "list-group-item-primary")">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">@notification.Title</h5>
+                        <small>@notification.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+                    </div>
+                    <p class="mb-1">@notification.Message</p>
+                    
+                    @if (!notification.IsRead)
+                    {
+                        <form method="post" action="@Url.Action("MarkAsRead", new { id = notification.Id })" class="mt-2">
+                            <button type="submit" class="btn btn-sm btn-outline-primary">Прочитано</button>
+                        </form>
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>

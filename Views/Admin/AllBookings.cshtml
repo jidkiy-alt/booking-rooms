@@ -1,0 +1,75 @@
+@model List<Booking>
+
+@{
+    ViewData["Title"] = "Все бронирования";
+}
+
+<div class="container mt-4">
+    <h2>Все бронирования</h2>
+
+    @if (Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Комната</th>
+                        <th>Пользователь</th>
+                        <th>Пользователь</th>
+                        <th>Цель</th>
+                        <th>Начало</th>
+                        <th>Окончание</th>
+                        <th>Статус</th>
+                        <th>Дата создания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@booking.Room.Name</strong>
+                                <br>
+                                <small class="text-muted">
+                                    @booking.Room.Building.DisplayName, 
+                                    @booking.Room.Category.DisplayName
+                                </small>
+                            </td>
+                            <td>@booking.User.FirstName</td>
+                            <td>@booking.User.LastName</td>
+                            <td>@booking.Purpose</td>
+                            <td>@booking.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>@booking.EndTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>
+                                @if (booking.Status == BookingStatus.Confirmed)
+                                {
+                                    <span class="badge bg-success">Подтверждено</span>
+                                }
+                                else if (booking.Status == BookingStatus.Cancelled)
+                                {
+                                    <span class="badge bg-danger">Отменено</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@booking.Status</span>
+                                }
+                            </td>
+                            <td>@booking.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <h4>Нет бронирований</h4>
+            <p>В системе пока нет ни одного бронирования.</p>
+        </div>
+    }
+
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-secondary">Назад в админ-панель</a>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Админ-панель";
+}
+
+<div class="container mt-4">
+    <h2>Админ-панель</h2>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Управление комнатами</h5>
+                </div>
+                <div class="card-body">
+                    <a asp-action="CreateRoom" class="btn btn-success btn-block mb-3">
+                        <i class="fas fa-plus"></i> Создать новую комнату
+                    </a>
+                    <a asp-controller="Room" asp-action="Index" class="btn btn-success btn-block mb-3">
+                        <i class="fas fa-plus"></i> Просмотр всех комнат
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Управление бронированиями</h5>
+                    </div>
+                    <div class="card-body">
+                        <a asp-action="AllBookings" class="btn btn-info btn-block mb-3">
+                            <i class="fas fa-calendar-alt"></i> Просмотр всех бронирований
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

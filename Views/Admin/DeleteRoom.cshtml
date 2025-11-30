@@ -1,0 +1,72 @@
+@model Room
+
+@{
+    ViewData["Title"] = "Подтверждение удаления комнаты";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-exclamation-triangle"></i> Подтверждение удаления
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-danger">Вы собираетесь удалить комнату:</h5>
+                    
+                    <div class="room-info mb-4 p-3 border rounded">
+                        <h4>@Model.Name</h4>
+                        <p class="text-muted">@Model.Description</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Вместимость:</strong> @Model.Capacity человек
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Расположение:</strong> @Model.Location
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <strong>Здание:</strong> @Model.Building?.DisplayName
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Категория:</strong> @Model.Category?.DisplayName
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <h6><i class="bi bi-exclamation-circle"></i> Внимание!</h6>
+                        <ul class="mb-0">
+                            <li>Это действие <strong>нельзя отменить</strong></li>
+                            <li>Все связанные бронирования этой комнаты будут удалены</li>
+                            <li>Вся информация об оборудовании комнаты будет удалена</li>
+                        </ul>
+                    </div>
+
+                    <div class="d-flex gap-2 justify-content-between">
+                        <a asp-action="Details" asp-controller="Room" asp-route-id="@Model.Id" 
+                           class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i> Вернуться к комнате
+                        </a>
+                        
+                        <div class="d-flex gap-2">
+                            <a asp-action="Index" asp-controller="Room" class="btn btn-secondary">
+                                <i class="bi bi-list"></i> К списку комнат
+                            </a>
+                            
+                            <form asp-action="DeleteRoomConfirmed" asp-route-id="@Model.Id" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i> Да, удалить комнату
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

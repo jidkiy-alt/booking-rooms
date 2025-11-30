@@ -1,0 +1,60 @@
+@model IEnumerable<ASPNET_PROJECT.Models.Expense>
+
+@{
+    ViewData["Title"] = "л о л";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary">My Expenses</h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Add New Expense
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="card-title mb-0">Expenses List</h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Description</td>
+                                <td class="fw-bold text-success">$@item.Amount.ToString("F2")</td>
+                                <td>
+                                    <span class="badge bg-primary">@item.Category</span>
+                                </td>
+                                <td>@item.Date.ToString("yyyy-MM-dd")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info mt-3 text-center">
+            <i class="bi bi-info-circle"></i> No expenses found. 
+            <a asp-action="Create" class="alert-link">Add your first expense</a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <!-- Добавляем Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+}
