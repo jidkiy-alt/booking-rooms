@@ -4,7 +4,7 @@ WORKDIR /src
 COPY . .
 RUN dotnet restore
 
-RUN dotnet tool install --global dotnet-ef
+RUN dotnet tool install --global dotnet-ef --version 9.0.0
 
 RUN dotnet publish ASPNET-PROJECT.csproj -c Release -o /app/out
 
