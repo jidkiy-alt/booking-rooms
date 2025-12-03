@@ -14,12 +14,12 @@ namespace ASPNET_PROJECT.Models.ViewModels
         [Required]
         [Display(Name = "Начало бронирования")]
         [DataType(DataType.DateTime)]
-        public DateTime StartTime { get; set; } = DateTime.Now.AddHours(1);
+        public DateTime StartTime { get; set; } = DateTime.UtcNow.AddHours(1);
 
         [Required]
         [Display(Name = "Окончание бронирования")]
         [DataType(DataType.DateTime)]
-        public DateTime EndTime { get; set; } = DateTime.Now.AddHours(2);
+        public DateTime EndTime { get; set; } = DateTime.UtcNow.AddHours(2);
 
         public bool IsValidPeriod => EndTime > StartTime;
     }

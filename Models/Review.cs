@@ -15,7 +15,7 @@ namespace ASPNET_PROJECT.Models
         [StringLength(1000)]
         public string Comment { get; set; } = null!;
         
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         
         public int UserId { get; set; }
         public User User { get; set; } = null!;

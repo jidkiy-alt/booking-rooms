@@ -3,6 +3,7 @@ using System;
 using ASPNET_PROJECT.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ASPNET_PROJECT.Migrations
 {
     [DbContext(typeof(DbAppContext))]
-    partial class DbAppContextModelSnapshot : ModelSnapshot
+    [Migration("20251203072845_AddUserAdmin")]
+    partial class AddUserAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +61,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Bookings", (string)null);
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("ASPNET_PROJECT.Models.Building", b =>
@@ -127,7 +130,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -217,7 +220,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Expenses", (string)null);
+                    b.ToTable("Expenses");
                 });
 
             modelBuilder.Entity("ASPNET_PROJECT.Models.Notification", b =>
@@ -257,7 +260,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Notifications", (string)null);
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("ASPNET_PROJECT.Models.Review", b =>
@@ -291,7 +294,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reviews", (string)null);
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("ASPNET_PROJECT.Models.Role", b =>
@@ -313,7 +316,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
 
                     b.HasData(
                         new
@@ -365,7 +368,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
 
                     b.HasData(
                         new
@@ -405,7 +408,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasIndex("EquipmentId");
 
-                    b.ToTable("RoomEquipments", (string)null);
+                    b.ToTable("RoomEquipments");
 
                     b.HasData(
                         new
@@ -468,7 +471,7 @@ namespace ASPNET_PROJECT.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
 
                     b.HasData(
                         new

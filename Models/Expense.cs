@@ -16,6 +16,6 @@ namespace ASPNET_PROJECT.Models
         public double Amount { get; set; } 
         [Required]
         public string Category { get; set; } = null!;
-        public DateTime Date { get; set; } = DateTime.Now;  
+        public DateTime Date { get; set; } = DateTime.UtcNow;  
     }
 }

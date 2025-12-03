@@ -26,7 +26,7 @@ namespace ASPNET_PROJECT.Models
         [Required]
         public string Purpose { get; set; } = null!;
         
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public BookingStatus Status { get; set; } = BookingStatus.Confirmed;
     }
     

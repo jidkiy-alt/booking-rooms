@@ -143,6 +143,19 @@ namespace ASPNET_PROJECT.Data
                 new Role { Id = 1, Name = RoleNames.User, Description = "Обычный пользователь" },
                 new Role { Id = 2, Name = RoleNames.Admin, Description = "Администратор" }
             );
+
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    Email = "admin@example.com",
+                    Password = "admin123",
+                    FirstName = "Администратор",
+                    LastName = "Системы",
+                    CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                    RoleId = 2
+                }
+            );
         }
     }
 }
