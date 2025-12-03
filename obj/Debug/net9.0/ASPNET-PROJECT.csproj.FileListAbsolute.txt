@@ -302,3 +302,6 @@ C:\Users\Alexander\Desktop\учебники и лабы\ASPNET-PROJECT\bin\Debug
 C:\Users\Alexander\Desktop\учебники и лабы\ASPNET-PROJECT\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Alexander\Desktop\учебники и лабы\ASPNET-PROJECT\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Alexander\Desktop\учебники и лабы\ASPNET-PROJECT\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Alexander\Desktop\учебники и лабы\ASPNET-PROJECT\bin\Debug\net9.0\Npgsql.dll
+C:\Users\Alexander\Desktop\учебники и лабы\ASPNET-PROJECT\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Alexander\Desktop\учебники и лабы\ASPNET-PROJECT\obj\Debug\net9.0\ASPNET-PROJECT.sourcelink.json

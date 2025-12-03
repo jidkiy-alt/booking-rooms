@@ -23,7 +23,7 @@ builder.Services.AddSession(options =>
 
 builder.Services.AddDbContext<DbAppContext>(
     options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
 );
 
 builder.Services.AddScoped<IExpensesService, ExpensesService>();
